@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amool Exclusive- Premium Apparel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .navbar {
+            background-color: #111827;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+        .logo span {
+            color: #fbbf24;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        .nav-links a {
+            color: #9ca3af;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #ffffff;
+        }
+        .cart-trigger {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 18px;
+            border-radius: 50px;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .cart-counter {
+            background-color: #fbbf24;
+            color: #0b0f19;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 10px;
+        }
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, #111827, #0b0f19);
+        }
+        .hero-tag {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fbbf24;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        .hero-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        .hero-desc {
+            font-size: 16px;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+        .catalog-section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .product-card {
+            background: #111827;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .image-container {
+            position: relative;
+            aspect-ratio: 3/4;
+            background-color: #1f2937;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-details {
+            padding: 20px;
+        }
+        .product-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+        .btn-buy {
+            width: 100%;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-buy:hover {
+            background-color: #ffffff;
+            color: #0b0f19;
+        }
+        .checkout-section {
+            padding: 80px 0;
+            background-color: #080c14;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+        }
+        .box-luxury {
+            background: #111827;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .panel-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .cart-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .cart-meta h4 {
+            font-size: 15px;
+            color: #ffffff;
+        }
+        .cart-meta p {
+            font-size: 13px;
+            color: #fbbf24;
+        }
+        .btn-delete {
+            background: transparent;
+            border: none;
+            color: #f87171;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .empty-notice {
+            text-align: center;
+            color: #6b7280;
+            padding: 20px 0;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            color: #9ca3af;
+        }
+        .input-group input, .input-group textarea, .input-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: #0b0f19;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 14px;
+            color: #ffffff;
+            outline: none;
+        }
+        .input-group input:focus, .input-group textarea:focus, .input-group select:focus {
+            border-color: #fbbf24;
+        }
+        .btn-submit-order {
+            width: 100%;
+            background-color: #fbbf24;
+            color: #0b0f19;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        @media (max-width: 992px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .checkout-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">AMOOlEXCLUSIVE<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Collection</a></li>
+                <li><a href="#shop">Katalog</a></li>
+                <li><a href="#bag">Pesanan</a></li>
+            </ul>
+            <a href="#bag" class="cart-trigger">
+                Keranjang (<span id="total-badge">0</span>)
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="hero-tag">Eid edition</span>
+            <h1 class="hero-title">Produk Terbaik Kami.<br>Terbaik Dikelasnya.</h1>
+            <p class="hero-desc">Pakaian dengan potongan siluet modern yang dirancang menggunakan serat katun alami pilihan.</p>
+        </div>
+    </header>
+
+    <main class="catalog-section" id="shop">
+        <div class="container">
+            <h2 class="section-title">Produk Kami</h2>
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <div class="image-container">
+                        <img src="foto.produk 4.webp" auto=format&fit=crop&w=400&q=80" alt="Baju">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Luxury Organic Drop-Tee</h3>
+                        <span class="product-price">Rp 149.000</span>
+                        <button class="btn-buy" onclick="pushToBag('Luxury Organic Drop-Tee', 149000)">Add To Bag</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-container">
+                        <img src="foto.produk 3.webp" auto=format&fit=crop&w=400&q=80 alt="Baju">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">SAUDAH MAXI DRESS </h3>
+                        <span class="product-price">Rp 285.000</span>
+                        <button class="btn-buy" onclick="pushToBag('SAUDAH MAXI DRESS', 285000)">Add To Bag</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-container">
+                        <img src="foto produk 1baru.webp" auto=format&fit=crop&w=400&q=80 alt="Baju">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">DRESS BRUKAT TILE/GAMIS</h3>
+                        <span class="product-price">Rp 450.000</span>
+                        <button class="btn-buy" onclick="pushToBag('DRESS BRUKAT TILE/GAMIS', 450000)">Add To Bag</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-container">
+                        <img src="foto.produk2.webp" auto=format&fit=crop&w=400&q=80 alt="Baju">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">GAMIS WANITA BUSUI</h3>
+                        <span class="product-price">Rp 399.000</span>
+                        <button class="btn-buy" onclick="pushToBag('GAMIS WANITA BUSUI', 399000)">Add To Bag</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <section class="checkout-section" id="bag">
+        <div class="container">
+            <div class="checkout-grid">
+                
+                <div class="box-luxury">
+                    <h3 class="panel-title">Your Selection</h3>
+                    <div id="bag-items-wrapper">
+                        <p class="empty-notice">Your bag is empty. Choose a piece to start.</p>
+                    </div>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="bag-grand-total">Rp 0</span>
+                    </div>
+                </div>
+
+                <div class="box-luxury">
+                    <h3 class="panel-title">Shipping Desk</h3>
+                    <form id="order-form" onsubmit="executeOrder(event)">
+                        <div class="input-group">
+                            <label>Client Name</label>
+                            <input type="text" id="client-name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" id="client-phone" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Destination Address</label>
+                            <textarea id="client-address" rows="3" required></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>Payment Channel</label>
+                            <select id="client-gateway">
+                                <option value="Bank Transfer">Bank Transfer</option>
+                                <option value="QRIS">QRIS / E-Wallet</option>
+                                <option value="COD">COD</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit-order">Place Order</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let shoppingBag = [];
+
+        function pushToBag(name, price) {
+            const match = shoppingBag.find(item => item.name === name);
+            if (match) {
+                match.count += 1;
+            } else {
+                shoppingBag.push({ name: name, price: price, count: 1 });
+            }
+            renderBag();
+        }
+
+        function dropFromBag(index) {
+            shoppingBag.splice(index, 1);
+            renderBag();
+        }
+
+        function renderBag() {
+            const listContainer = document.getElementById('bag-items-wrapper');
+            const totalBadge = document.getElementById('total-badge');
+            const finalTotal = document.getElementById('bag-grand-total');
+
+            let totalCount = shoppingBag.reduce((sum, current) => sum + current.count, 0);
+            totalBadge.innerText = totalCount;
+
+            if (shoppingBag.length === 0) {
+                listContainer.innerHTML = '<p class="empty-notice">Your bag is empty. Choose a piece to start.</p>';
+                finalTotal.innerText = 'Rp 0';
+                return;
+            }
+
+            let combinedHtml = '';
+            let cumulativePrice = 0;
+
+            shoppingBag.forEach((item, index) => {
+                let subcost = item.price * item.count;
+                cumulativePrice += subcost;
+
+                combinedHtml += '<div class="cart-row">' +
+                    '<div class="cart-meta">' +
+                        '<h4>' + item.name + '</h4>' +
+                        '<p>' + item.count + ' Unit - Rp ' + subcost.toLocaleString('id-ID') + '</p>' +
+                    '</div>' +
+                    '<button class="btn-delete" onclick="dropFromBag(' + index + ')">Remove</button>' +
+                '</div>';
+            });
+
+            listContainer.innerHTML = combinedHtml;
+            finalTotal.innerText = 'Rp ' + cumulativePrice.toLocaleString('id-ID');
+        }
+
+        function executeOrder(event) {
+    event.preventDefault();
+
+    // 1. Validasi jika keranjang masih kosong
+    if (shoppingBag.length === 0) {
+        alert('Keranjang belanja kosong! Silakan pilih baju terlebih dahulu.');
+        return;
+    }
+
+    // 2. Ambil data pengiriman dari form
+    const clientName = document.getElementById('client-name').value;
+    const clientPhone = document.getElementById('client-phone').value;
+    const clientAddress = document.getElementById('client-address').value;
+    const chosenGateway = document.getElementById('client-gateway').value;
+
+    // 3. Susun daftar baju yang dibeli ke dalam teks nota
+    let itemText = '';
+    let cumulativePrice = 0;
+
+    shoppingBag.forEach((item) => {
+        let subcost = item.price * item.count;
+        cumulativePrice += subcost;
+        itemText += '- ' + item.name + ' (' + item.count + ' Pcs) -> Rp ' + subcost.toLocaleString('id-ID') + '\n';
+    });
+
+    // 4. Nomor WhatsApp tujuan (081230575075 diubah ke format internasional 6281230575075)
+    const adminWhatsApp = "081230575075";
+
+    // 5. Buat template pesan teks rapi untuk WhatsApp
+    const message = "*NOTA PESANAN BARU - AURA BOUTIQUE*\n" +
+                    "-------------------------------------------\n\n" +
+                    "*Detail Item:*\n" + itemText + "\n" +
+                    "*Total Pembayaran:* Rp " + cumulativePrice.toLocaleString('id-ID') + "\n\n" +
+                    "-------------------------------------------\n" +
+                    "*Data Pengiriman:*\n" +
+                    "- *Nama:* " + clientName + "\n" +
+                    "- *No. HP Pembeli:* " + clientPhone + "\n" +
+                    "- *Alamat Lengkap:* " + clientAddress + "\n" +
+                    "- *Metode Bayar:* " + chosenGateway + "\n\n" +
+                    "Mohon segera diproses ya Min, terima kasih!";
+
+    // 6. Encode teks agar aman dibaca oleh URL WhatsApp
+    const encodedMessage = encodeURIComponent(message);
+    
+    // PERBAIKAN: Menggunakan URL resmi wa.me yang lebih universal dan lancar di HP/Laptop
+    const whatsappUrl = "https://wa.me" + adminWhatsApp + "?text=" + encodedMessage;
+
+    // 7. Beri konfirmasi ke pembeli
+    alert("Terima kasih " + clientName + ", pesanan Anda telah dirangkum. Menekan 'OK' akan langsung mengalihkan Anda ke WhatsApp Admin.");
+    
+    // PERBAIKAN UTAMA: Mengalihkan langsung di tab yang sama agar TIDAK diblokir oleh sistem keamanan browser
+    window.location.href = whatsappUrl;
+
+    // 8. Kosongkan keranjang belanja & form setelah dialihkan
+    shoppingBag = [];
+    document.getElementById('order-form').reset();
+    renderBag();
+}
+
+    </script>
+</body>
+</html>
